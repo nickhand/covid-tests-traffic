@@ -1,0 +1,123 @@
+{
+  "name": "top-pages-realtime",
+  "sampling": {},
+  "query": {
+    "dimensions": "rt:pagePath,rt:pageTitle",
+    "metrics": [
+      "rt:activeUsers"
+    ],
+    "sort": [
+      "-rt:activeUsers"
+    ],
+    "filters": "rt:pagePath!~ncbi\\.nlm\\.nih\\.gov/ncbi_.*",
+    "max-results": 20
+  },
+  "meta": {
+    "name": "Top Pages (Live)",
+    "description": "The top 20 pages, measured by active onsite users, for all sites."
+  },
+  "data": [
+    {
+      "page": "covidtests.gov/",
+      "page_title": "COVIDtests.gov - Free at-home COVID-19 tests",
+      "active_visitors": "649373"
+    },
+    {
+      "page": "tools.usps.com/go/trackconfirmaction_input",
+      "page_title": "USPS.com® - USPS Tracking® Results",
+      "active_visitors": "32103"
+    },
+    {
+      "page": "tools.usps.com/go/trackconfirmaction",
+      "page_title": "USPS.com® - USPS Tracking® Results",
+      "active_visitors": "29237"
+    },
+    {
+      "page": "usps.com/",
+      "page_title": "Welcome | USPS",
+      "active_visitors": "16199"
+    },
+    {
+      "page": "tools.usps.com/zip-code-lookup.htm",
+      "page_title": "ZIP Code™ Lookup | USPS",
+      "active_visitors": "15415"
+    },
+    {
+      "page": "secure.login.gov/",
+      "page_title": "Welcome - Login.gov",
+      "active_visitors": "10500"
+    },
+    {
+      "page": "tools.usps.com/go/trackconfirmaction.action",
+      "page_title": "USPS.com® - USPS Tracking® Results",
+      "active_visitors": "10040"
+    },
+    {
+      "page": "informeddelivery.usps.com/box/pages/secure/dashboardaction_input.action",
+      "page_title": "Informed Delivery",
+      "active_visitors": "5674"
+    },
+    {
+      "page": "time.gov/",
+      "page_title": "National Institute of Standards and Technology | NIST",
+      "active_visitors": "5606"
+    },
+    {
+      "page": "cms.gov/how-to-get-your-at-home-otc-covid-19-test-for-free",
+      "page_title": "How to get your At-Home Over-The-Counter COVID-19 Test for Free | CMS",
+      "active_visitors": "5295"
+    },
+    {
+      "page": "covidtests.gov/es/",
+      "page_title": "COVIDtests.gov - Pruebas caseras gratuitas de COVID-19",
+      "active_visitors": "4851"
+    },
+    {
+      "page": "faq.usps.com/s/article/at-home-covid-19-test-kits",
+      "page_title": "Article Detail",
+      "active_visitors": "3777"
+    },
+    {
+      "page": "cdc.gov/coronavirus/2019-ncov/your-health/quarantine-isolation.html",
+      "page_title": "COVID-19 Quarantine and Isolation | CDC",
+      "active_visitors": "3565"
+    },
+    {
+      "page": "usps.com/search/results.htm",
+      "page_title": "Search Results Page | USPS",
+      "active_visitors": "3045"
+    },
+    {
+      "page": "hhs.gov/coronavirus/community-based-testing-sites/index.html",
+      "page_title": "Community-Based Testing Sites for COVID-19 | HHS.gov",
+      "active_visitors": "2845"
+    },
+    {
+      "page": "irs.gov/payments/your-online-account",
+      "page_title": "Your Online Account | Internal Revenue Service",
+      "active_visitors": "2837"
+    },
+    {
+      "page": "faq.usps.com/s/article/at-home-covid-19-test-kits",
+      "page_title": "USPS.com FAQs",
+      "active_visitors": "2767"
+    },
+    {
+      "page": "studentaid.gov/fsa-id/sign-in",
+      "page_title": "Log In | Federal Student Aid",
+      "active_visitors": "2595"
+    },
+    {
+      "page": "usajobs.gov/search/results",
+      "page_title": "USAJOBS - Search",
+      "active_visitors": "2567"
+    },
+    {
+      "page": "eyes.nasa.gov/apps/asteroids/",
+      "page_title": "NASA/JPL Eyes",
+      "active_visitors": "2509"
+    }
+  ],
+  "totals": {},
+  "taken_at": "2022-01-18T19:56:45.544Z"
+}
