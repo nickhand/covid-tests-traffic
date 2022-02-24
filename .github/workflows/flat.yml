@@ -21,8 +21,8 @@ jobs:
         with:
           http_url: https://analytics.usa.gov/data/live/all-pages-realtime.json
           downloaded_filename: data.json
-  update:
-    name: Update
+  post-process:
+    name: Post-process data
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -35,7 +35,7 @@ jobs:
       - name: Run image
         uses: abatilo/actions-poetry@v2.0.0
         with:
-          poetry-version: "1.1.11"
+          poetry-version: 1.1.11
       - name: Run update
         run: |
           cd python
