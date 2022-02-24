@@ -31,10 +31,9 @@
         <a href="https://www.special.usps.com/testkits"
           >special.usps.com/testkits</a
         >
-        .
       </div>
       <div>
-        <span class="bold">Source</span>
+        <span class="bold">Source</span>:
         <a href="https://analytics.usa.gov">analytics.usa.gov</a>; scraped data
         available on
         <a href="https://github.com/nickhand/covid-tests-traffic">Github</a>
