@@ -8,6 +8,7 @@
 import TrafficChart from "@/components/TrafficChart.vue";
 import { rollup, sum } from "d3-array";
 import { fetchData, fetchMetadata } from "@/utils";
+import { timeParse } from "d3-time-format";
 
 export default {
   name: "App",
@@ -21,8 +22,10 @@ export default {
     };
   },
   async created() {
+    // Parse the meta data
     let meta = await fetchMetadata();
-    this.last_updated = new Date(meta["committed_datetime"]);
+    let f = timeParse("%Y-%m-%d %H:%M:%S%Z");
+    this.last_updated = f(meta["committed_datetime"]);
 
     let data = await fetchData();
     let covid_traffic = Array.from(

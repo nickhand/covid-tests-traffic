@@ -24,7 +24,8 @@
 
     <div class="footnote">
       <div>
-        Note: Traffic related to COVID-19 tests includes the following domains:
+        <span class="bold">Note</span>: Traffic related to COVID-19 tests
+        includes the following domains:
         <a href="https://www.COVIDtests.gov">COVIDtests.gov</a>
         and
         <a href="https://www.special.usps.com/testkits"
@@ -33,7 +34,7 @@
         .
       </div>
       <div>
-        <span>Source</span>:
+        <span class="bold">Source</span>
         <a href="https://analytics.usa.gov">analytics.usa.gov</a>; scraped data
         available on
         <a href="https://github.com/nickhand/covid-tests-traffic">Github</a>
@@ -77,7 +78,7 @@ export default {
     },
     chartOptions() {
       return {
-        grid: { padding: { left: 50, right: 50 } },
+        grid: { padding: { left: 50, right: 50, top: 30 } },
         stroke: { width: 2.5, curve: "straight" },
         annotations: {
           xaxis: [
@@ -135,6 +136,7 @@ export default {
         },
         yaxis: {
           labels: {
+            show: true,
             style: {
               fontSize: "16px",
             },
@@ -143,7 +145,19 @@ export default {
             },
           },
         },
-        legend: { position: "top", fontSize: "18px" },
+        legend: { position: "top", fontSize: "18px", offsetY: 40 },
+        responsive: [
+          {
+            breakpoint: 768,
+            options: {
+              yaxis: {
+                labels: {
+                  show: false,
+                },
+              },
+            },
+          },
+        ],
       };
     },
   },
@@ -164,7 +178,7 @@ h2 {
   margin-top: 3rem;
 }
 .footnote {
-  margin-top: 0rem;
+  margin-top: 3rem;
   font-style: italic;
   font-size: 1.1rem;
   text-align: left;
@@ -182,5 +196,11 @@ h2 {
 .my-hr {
   border-top: 1px solid #000;
   width: 80%;
+}
+.footnote div {
+  margin-top: 0.5rem;
+}
+.bold {
+  font-weight: 700;
 }
 </style>
