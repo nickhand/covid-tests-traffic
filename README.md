@@ -1,3 +1,3 @@
-# top-govt-pages
+# covid-tests-traffic
 
-Tracking realtime traffic to government pages via https://analytics.usa.gov/
+Tracking realtime traffic to covidtests.gov via https://analytics.usa.gov/
