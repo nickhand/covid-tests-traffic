@@ -7,7 +7,7 @@ from rich.progress import track
 
 from . import HOME_DIR
 
-COVID_PAGES = ["covidtests.gov/", "special.usps.com/testkits"]
+COVID_PAGES = ["covidtests.gov/", "special.usps.com/testkits", "covid.gov/tests"]
 
 
 def load_commit_data(commit, filename="data.json"):
@@ -40,6 +40,7 @@ def _update(start_commit=None):
 
     # Initialize the repo
     top_folder = (HOME_DIR / ".." / "..").resolve()
+    print(top_folder)
     repo = git.Repo(str(top_folder), odbt=git.GitDB)
 
     # The commits
@@ -48,6 +49,8 @@ def _update(start_commit=None):
     else:
         rev = f"{start_commit}..HEAD"
     commits = list(reversed(list(repo.iter_commits(rev))))
+    if not len(commits):
+        return
 
     # Outputs
     meta = {}
@@ -59,6 +62,7 @@ def _update(start_commit=None):
         description="Processing...",
         total=len(commits),
     ):
+        
 
         # Load the data for this commit
         df = load_commit_data(commit)
