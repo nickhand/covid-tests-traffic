@@ -1,56 +1,56 @@
-name: data
-on:
-  schedule:
-    - cron: "*/20 * * * *"
-  workflow_dispatch: {}
-  push:
-    paths:
-      - .github/workflows/flat.yml
-jobs:
-  scheduled:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Setup deno
-        uses: denoland/setup-deno@main
-        with:
-          deno-version: v1.x
-      - name: Check out repo
-        uses: actions/checkout@v2
-      - name: Fetch data
-        uses: githubocto/flat@v3
-        with:
-          http_url: https://analytics.usa.gov/data/live/all-pages-realtime.json
-          downloaded_filename: data.json
-  post-process:
-    name: Post-process data
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-          fetch-depth: 0
-      - uses: actions/setup-python@v2
-        with:
-          python-version: "3.9"
-      - name: Run image
-        uses: abatilo/actions-poetry@v2.0.0
-        with:
-          poetry-version: 1.1.11
-      - name: Run update
-        run: |
-          cd python
-          poetry install
-          git pull origin main 
-          poetry run covid-tests-traffic update
-      - name: Commit files
-        continue-on-error: true
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add processed/
-          timestamp=$(date -u)
-          git commit -m "Latest data: ${timestamp}" || exit 0
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+# name: data
+# on:
+#   schedule:
+#     - cron: "*/20 * * * *"
+#   workflow_dispatch: {}
+#   push:
+#     paths:
+#       - .github/workflows/flat.yml
+# jobs:
+#   scheduled:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Setup deno
+#         uses: denoland/setup-deno@main
+#         with:
+#           deno-version: v1.x
+#       - name: Check out repo
+#         uses: actions/checkout@v2
+#       - name: Fetch data
+#         uses: githubocto/flat@v3
+#         with:
+#           http_url: https://analytics.usa.gov/data/live/all-pages-realtime.json
+#           downloaded_filename: data.json
+#   post-process:
+#     name: Post-process data
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#           persist-credentials: false
+#           fetch-depth: 0
+#       - uses: actions/setup-python@v2
+#         with:
+#           python-version: "3.9"
+#       - name: Run image
+#         uses: abatilo/actions-poetry@v2.0.0
+#         with:
+#           poetry-version: 1.1.11
+#       - name: Run update
+#         run: |
+#           cd python
+#           poetry install
+#           git pull origin main 
+#           poetry run covid-tests-traffic update
+#       - name: Commit files
+#         continue-on-error: true
+#         run: |
+#           git config --local user.email "action@github.com"
+#           git config --local user.name "GitHub Action"
+#           git add processed/
+#           timestamp=$(date -u)
+#           git commit -m "Latest data: ${timestamp}" || exit 0
+#       - name: Push changes
+#         uses: ad-m/github-push-action@master
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
